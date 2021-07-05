@@ -4,12 +4,12 @@ trigger:
     - master
 variables:
   buildConfiguration: 'Release'
-  location: 'West US 2'
-  acrHostName: 'cswebappdocker004acr.azurecr.io'
-  acrName: 'cswebappdocker004acr'
-  rgName: 'cswebappdocker004-rg'
-  imageName: 'cswebappdocker004'
-  webAppName: 'cswebappdocker004'
+  location: 'Australia East'
+  acrHostName: 'carrilloconsultwebappdocker001acr.azurecr.io'
+  acrName: 'carrilloconsultwebappdocker001acr'
+  rgName: 'carrilloconsultingappdocker001acr-rg'
+  imageName: 'carrilloconsultwebappdocker001acr'
+  webAppName: 'carrilloconsultwebappdocker001acr'
 
 stages:
 
