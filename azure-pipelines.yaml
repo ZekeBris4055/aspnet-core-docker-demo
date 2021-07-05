@@ -106,7 +106,7 @@ stages:
   jobs:
   - job: Release
     pool:
-      vmImage: 'Ubuntu-16.04'
+      vmImage: 'windows-latest'
     steps:
     # Don't clone the repo
     - checkout: none
