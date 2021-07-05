@@ -4,6 +4,7 @@ trigger:
     - master
 variables:
   buildConfiguration: 'Release'
+  azsubscription: 'CarrilloConsulting1'
   location: 'Australia East'
   acrHostName: 'carrilloconsult1webappdocker001acr.azurecr.io'
   acrName: 'carrilloconsult1webappdocker001acr'
@@ -25,7 +26,7 @@ stages:
     - task: AzureResourceGroupDeployment@2
       displayName: 'Azure Deployment:Create Azure Container Registry'
       inputs:
-        azureSubscription: 'CarrilloConsulting1'
+        azureSubscription: '$(azsubscription)'
         resourceGroupName: '$(rgName)'
         location: $(location)
         csmFile: '$(System.DefaultWorkingDirectory)/**/containerRegistry-template.json'
@@ -74,7 +75,7 @@ stages:
     - task: Docker@1
       displayName: 'Build container image'
       inputs:
-        azureSubscriptionEndpoint: 'AzureSC'
+        azureSubscriptionEndpoint: '$(azsubscription)'
         azureContainerRegistry: '$(acrHostName)'
         imageName: '$(imageName):$(Build.BuildId)'
         useDefaultContext: false
@@ -84,7 +85,7 @@ stages:
     - task: Docker@1
       displayName: 'Push container image'
       inputs:
-        azureSubscriptionEndpoint: 'AzureSC'
+        azureSubscriptionEndpoint: '$(azsubscription)'
         azureContainerRegistry: '$(acrHostName)'
         command: 'Push an image'
         imageName: '$(imageName):$(Build.BuildId)'
@@ -118,7 +119,7 @@ stages:
     - task: AzureResourceGroupDeployment@2
       displayName: 'Azure Deployment:Create Azure App Service'
       inputs:
-        azureSubscription: 'AzureSC'
+        azureSubscription: '$(azsubscription)'
         resourceGroupName: '$(rgName)'
         location: '$(location)'
         csmFile: '$(Pipeline.Workspace)/**/container-webapp-template.json'
@@ -128,7 +129,7 @@ stages:
     - task: AzureRmWebAppDeployment@3
       displayName: 'Deploy Azure App Service'
       inputs:
-        azureSubscription: 'AzureSC'
+        azureSubscription: '$(azsubscription)'
         appType: applinux
         WebAppName: $(webAppName)
         DockerNamespace: $(acrHostName)
