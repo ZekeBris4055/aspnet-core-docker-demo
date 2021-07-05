@@ -84,7 +84,7 @@ stages:
     - task: Docker@1
       displayName: 'Push container image'
       inputs:
-        azureSubscriptionEndpoint: '$(azsubscription)'
+        azureSubscriptionEndpoint: 'AzureDevOpsSC'
         azureContainerRegistry: '$(acrHostName)'
         command: 'Push an image'
         imageName: '$(imageName):$(Build.BuildId)'
