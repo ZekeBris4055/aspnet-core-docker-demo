@@ -74,7 +74,7 @@ stages:
     - task: Docker@1
       displayName: 'Build container image'
       inputs:
-        azureSubscriptionEndpoint: '$(azsubscription)'
+        azureSubscriptionEndpoint: 'AzureDevOpsSC'
         azureContainerRegistry: '$(acrHostName)'
         imageName: '$(imageName):$(Build.BuildId)'
         useDefaultContext: false
