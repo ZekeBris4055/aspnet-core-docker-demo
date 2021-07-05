@@ -5,11 +5,11 @@ trigger:
 variables:
   buildConfiguration: 'Release'
   location: 'Australia East'
-  acrHostName: 'carrilloconsultwebappdocker001acr.azurecr.io'
-  acrName: 'carrilloconsultwebappdocker001acr'
-  rgName: 'carrilloconsultingappdocker001acr-rg'
-  imageName: 'carrilloconsultwebappdocker001acr'
-  webAppName: 'carrilloconsultwebappdocker001acr'
+  acrHostName: 'carrilloconsult1webappdocker001acr.azurecr.io'
+  acrName: 'carrilloconsult1webappdocker001acr'
+  rgName: 'carrilloconsult1webappdocker001acr-rg'
+  imageName: 'carrilloconsult1webappdocker001acr'
+  webAppName: 'carrilloconsult1webappdocker001acr'
 
 stages:
 
